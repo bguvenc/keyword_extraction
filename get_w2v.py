@@ -13,15 +13,12 @@ import logging
 with open("dream_luther.txt") as file: 
     text_review = file.read()
 
-    # Function to convert a document to a sequence of words,
+# Function to convert a document to a sequence of words,
 def text_to_wordlist( text, remove_stopwords=False ):
-
-    # 2. Remove non-letters
+   # 2. Remove non-letters
     review_text = re.sub("[^a-zA-Z]"," ", text)
-
     # 3. Convert words to lower case and split them
     words = review_text.lower().split()
-
     return(words)
    
 tokenizer = nltk.data.load('tokenizers/punkt/english.pickle') 
@@ -46,7 +43,6 @@ sentences = []
 #Parsing sentences from training set
 for review in text_review:
     sentences += text_to_sentences(text_review, tokenizer, remove_stopwords=False )
-
 
 num_features = 100
 model = word2vec.Word2Vec(sentences, size = num_features, window=5, min_count=0)
