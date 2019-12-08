@@ -91,7 +91,7 @@ x0 = [1] * n
 
 pagerank_values = powerMethod(cosine, x0, m, 130)
 
-srt = numpy.argsort(pagerank_values)
+srt = numpy.argsort(-pagerank_values)
 a = srt[0:10]
 
 keywords_list = []
